@@ -1,3 +1,8 @@
 <ul>
-    <question-preview [fields]="fields" (updateField)="changeField($event)"></question-preview>
+    <question-preview
+    [fields]="fields"
+    (updateField)="changeField($event)"
+    (cloneField)="onCloneField($event)"
+    (deleteField)="onDeleteField($event)"
+    ></question-preview>
 </ul>

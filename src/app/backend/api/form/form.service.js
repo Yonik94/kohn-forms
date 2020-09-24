@@ -61,11 +61,13 @@ async function addField(formId) {
 }
 
 async function updateForm(form) {
+    console.log({form});
     const collection = await dbService.getCollection('form');
     const formId = form._id
     delete form._id
     try {
-        await collection.replaceOne({ "_id": ObjectId(formId) }, form);
+        await collection.replaceOne({ "_id": ObjectId(formId)}, form);
+        form._id = formId;
         return form;
     } catch (err) {
         logger.error(err);

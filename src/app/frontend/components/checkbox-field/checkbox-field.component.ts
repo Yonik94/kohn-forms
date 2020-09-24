@@ -8,6 +8,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class CheckboxFieldComponent implements OnInit {
   @Output() addOption = new EventEmitter();
   @Output() updateField = new EventEmitter();
+  @Output() cloneField = new EventEmitter();
+  @Output() deleteField = new EventEmitter();
   @Input() field
   @Input() formId
   constructor() { }
@@ -17,6 +19,14 @@ export class CheckboxFieldComponent implements OnInit {
   }
   changeField(ev) {
     this.updateField.emit(ev)
+  }
+
+  onCloneField(ev) {
+    this.cloneField.emit(ev);
+  }
+
+  onDeleteField(ev) {
+    this.deleteField.emit(ev)
   }
 
   ngOnInit(): void {

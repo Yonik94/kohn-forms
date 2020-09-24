@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   UserService = new userService
   async ngOnInit() {
       const loggedInUser = await this.UserService.isLoggedIn();
-      console.log({ loggedInUser });
       if (!loggedInUser) this.route.navigate(['login']);
   }
 }

@@ -26,8 +26,20 @@ export class formService {
   }
 
   async updateField(formId, field) {
-    return await httpService.put(`form/${formId}/field`, field)
-    
+    return await httpService.put(`form/${formId}/field`, field);
+  }
+
+  async cloneField(field, form) {
+    const clonedField = this.utilService.cloneObj(field);
+    form.fields.push(clonedField);
+    return await this.updateForm(form);
+  }
+  
+  async deleteField(field, form) {
+    const fieldIdx = form.fields.findIndex(currField => currField.id === field.id);
+    console.log({fieldIdx});
+    if (fieldIdx >= 0) form.fields.splice(fieldIdx, 1);
+    return await this.updateForm(form);
   }
 
   createForm() {

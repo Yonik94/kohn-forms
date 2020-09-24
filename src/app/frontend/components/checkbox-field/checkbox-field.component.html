@@ -4,5 +4,10 @@
         <input type="checkbox" ngFor="option of field.options" value="option.txt">
     </div>
     <button (click)="onAddOption()">add option</button>
-    <field-footer [field]="field" (updateField)="changeField($event)"></field-footer>
+    <field-footer
+    [field]="field"
+    (updateField)="changeField($event)"
+    (cloneField)="onCloneField($event)"
+    (deleteField)="onDeleteField($event)"
+    ></field-footer>
 </div>

@@ -1,8 +1,14 @@
 <li *ngFor="let field of fields">
-    <text-field *ngIf="field.type === 'text'" [field]="field" (updateField)="changeField($event)">
+    <text-field *ngIf="field.type === 'text'" [field]="field"
+    (updateField)="changeField($event)" (cloneField)="onCloneField($event)"
+    (deleteField)="onDeleteField($event)">
     </text-field>
     <multiple-choice-field *ngIf="field.type === 'multipleChoice'" [field]="field"
-        (updateField)="changeField($event)"></multiple-choice-field>
-    <checkbox-field *ngIf="field.type === 'checkbox'" [field]="field" (updateField)="changeField($event)">
+        (updateField)="changeField($event)" (cloneField)="onCloneField($event)"
+    (deleteField)="onDeleteField($event)"></multiple-choice-field>
+    <checkbox-field
+    *ngIf="field.type === 'checkbox'" [field]="field"
+    (updateField)="changeField($event)" (cloneField)="onCloneField($event)"
+    (deleteField)="onDeleteField($event)">
     </checkbox-field>
 </li>

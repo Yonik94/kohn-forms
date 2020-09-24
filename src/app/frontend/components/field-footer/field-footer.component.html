@@ -1,6 +1,6 @@
 <div *ngIf="copyField" class="field-footer">
-    <button>Clone</button>
-    <button>Delete</button>
+    <button (click)="onCloneField()">Clone</button>
+    <button (click)="onDeleteField()">Delete</button>
     <label for="isRequired">Required</label>
-    <input id="isRequired" name="isRequired" type="checkbox" [(ngModel)]="copyField.isRequired" (change)="updateField()"/>
+    <input id="isRequired" name="isRequired" type="checkbox" [(ngModel)]="copyField.isRequired" (change)="changeField()"/>
 </div>

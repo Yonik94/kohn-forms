@@ -9,10 +9,20 @@ export class MultipleChoiceFieldComponent implements OnInit {
   @Input() field
   @Input() formId
   @Output() updateField = new EventEmitter()
+  @Output() cloneField = new EventEmitter()
+  @Output() deleteField = new EventEmitter()
   constructor() { }
   copyField;
   changeField(ev) {
     this.updateField.emit(ev)
+  }
+
+  onCloneField(ev) {
+    this.cloneField.emit(ev);
+  }
+
+  onDeleteField(ev) {
+    this.deleteField.emit(ev)
   }
 
   addOption() {

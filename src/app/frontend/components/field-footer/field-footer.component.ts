@@ -7,13 +7,24 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FieldFooterComponent implements OnInit {
   @Input() field
-  @Output() changeFieldType = new EventEmitter();
+  @Output() updateField = new EventEmitter();
+  @Output() cloneField = new EventEmitter();
+  @Output() deleteField = new EventEmitter();
   constructor() { }
   copyField;
 
-  updateField() {
-    this.changeFieldType.emit(this.copyField);
+  changeField() {
+    this.updateField.emit(this.copyField);
   }
+
+  onCloneField() {
+    this.cloneField.emit(this.copyField)
+  }
+  
+  onDeleteField() {    
+    this.deleteField.emit(this.copyField)
+  }
+
   ngOnInit(): void {
     this.copyField = JSON.parse(JSON.stringify(this.field));
   }

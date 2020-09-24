@@ -9,13 +9,19 @@ export class QuestionPreviewComponent implements OnInit {
   @Input() fields
   @Input() formId
   @Output() updateField = new EventEmitter()
-  
-  
-  // questions = [{title: 'What is your name', type: 'radio', options: ['option1', 'option2'], isRequired: true},
-  // {title: 'enter your prefered song', type: 'text', options: [], isRequired: false}];
+  @Output() cloneField = new EventEmitter()
+  @Output() deleteField = new EventEmitter()
   constructor() { }
   changeField(ev) {
     this.updateField.emit(ev)
+  }
+
+  onCloneField(ev) {
+    this.cloneField.emit(ev);
+  }
+
+  onDeleteField(ev){
+    this.deleteField.emit(ev)
   }
   
   ngOnInit(): void {

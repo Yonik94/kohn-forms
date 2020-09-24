@@ -6,6 +6,8 @@
     </div>
     <div class="form-body">
         <button (click)="addField()">add field</button>
-        <question-list [fields]="form.fields" (updateField)="updateField($event)"></question-list>
+        <question-list [fields]="form.fields"
+        (updateField)="updateField($event)" (cloneField)="onCloneField($event)"
+        (deleteField)="deleteField($event)"></question-list>
     </div>
 </div>

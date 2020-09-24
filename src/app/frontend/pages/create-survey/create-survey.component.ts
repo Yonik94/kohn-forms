@@ -37,7 +37,18 @@ export class CreateSurveyComponent implements OnInit {
   async updateForm() {
     const form = await this.formService.updateForm(this.form);
     this.form = form
-  } 
+  }
+
+  async onCloneField(ev) {
+    const form = await this.formService.cloneField(ev ,this.form);
+    this.form = form 
+  }
+
+  async deleteField(ev) {
+    console.log({ev});
+    const form = await this.formService.deleteField(ev, this.form);
+    this.form = form;
+  }
 
   async ngOnInit() {
     const loggedInUser = await this.userService.isLoggedIn();

@@ -8,5 +8,10 @@
         </li>
     </div>
     <button (click)="addOption()">add option</button>
-    <field-footer [field]="field" (updateField)="changeField($event)"></field-footer>
+    <field-footer
+    [field]="field"
+    (updateField)="changeField($event)"
+    (cloneField)="onCloneField($event)"
+    (deleteField)="onDeleteField($event)"
+    ></field-footer>
 </div>
