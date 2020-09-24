@@ -27,6 +27,7 @@ export class formService {
 
   async updateField(formId, field) {
     return await httpService.put(`form/${formId}/field`, field)
+    
   }
 
   createForm() {
