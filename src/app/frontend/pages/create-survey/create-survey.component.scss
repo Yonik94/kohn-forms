@@ -1,0 +1,13 @@
+.create-survey {
+    .form-header {
+        display: inline-flex;
+        flex-direction: column;
+
+        textarea {
+            resize: none;
+            &:first-of-type {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

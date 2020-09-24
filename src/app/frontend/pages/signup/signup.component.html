@@ -1,0 +1,9 @@
+<div class="login">
+    <h2>Signup</h2>
+    <form (submit)="onSignup($event)" action="">
+        <input type="text" placeholder="User name" name="userName" [(ngModel)]="signupCred.userName"/>
+        <input type="password" placeholder="Password" name="password" [(ngModel)]="signupCred.password"/>
+        <button>Signup</button>
+        <!-- <a href="/register">Don't have an account yet? Register now for free!</a> -->
+    </form>
+</div>

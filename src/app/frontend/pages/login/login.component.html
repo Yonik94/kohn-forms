@@ -1,0 +1,12 @@
+<div class="login">
+    <h2>{{title}}</h2>
+    <form (submit)="onSubmit($event)">
+        <input type="text" name="userName" placeholder="User name" [(ngModel)]="formCred.userName" />
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="formCred.password"/>
+        <button>{{title}}</button>
+    </form>
+    <a *ngIf="title === 'Login'; else navigateToLogin"(click)="navigateTo('signup')">Don't have an account yet? Signup now for free!</a>
+    <ng-template #navigateToLogin>
+        <a (click)="navigateTo('login')">Already have an account? Login now!</a>
+    </ng-template>
+</div>

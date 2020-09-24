@@ -1,0 +1,8 @@
+<div class="field-header" *ngIf="copyField">
+    <input type="text" [(ngModel)]="copyField.title" (blur)="changeField()">
+    <select (change)="changeField($event)" [(ngModel)]="copyField.type">
+        <option value="text">Text</option>
+        <option value="multipleChoice">Multiple choice</option>
+        <option value="checkbox">Checkbox</option>
+    </select>
+</div>

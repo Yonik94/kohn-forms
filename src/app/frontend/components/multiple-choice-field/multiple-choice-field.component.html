@@ -1,0 +1,12 @@
+<div *ngIf="copyField">
+    <field-header [field]="field" (updateField)="changeField($event)"></field-header>
+    <div *ngIf="copyField.options && copyField.options.length > 0">
+        <li *ngFor="let option of copyField.options; let idx = index">
+            <div></div>
+            <input type="text" [(ngModel)]="option.txt" (blur)="changeField(copyField)">
+            <button (click)="deleteOption(idx)">delete option</button>
+        </li>
+    </div>
+    <button (click)="addOption()">add option</button>
+    <field-footer [field]="field" (updateField)="changeField($event)"></field-footer>
+</div>

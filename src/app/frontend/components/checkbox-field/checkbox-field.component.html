@@ -1,0 +1,8 @@
+<div>
+    <field-header [field]="field" (updateField)="changeField($event)"></field-header>
+    <div *ngIf="field.options && field.options.length > 0">
+        <input type="checkbox" ngFor="option of field.options" value="option.txt">
+    </div>
+    <button (click)="onAddOption()">add option</button>
+    <field-footer [field]="field" (updateField)="changeField($event)"></field-footer>
+</div>
