@@ -1,14 +1,20 @@
-<div>
-    <div class="templates-container">
-        <a (click)="onAddForm()">+</a>
-        <!-- <template-forms></template-forms> -->
+<div class="home-page">
+    <div class="flex column templates-container">
         <span>template list</span>
+        <div class="templates">
+            <button (click)="onAddForm()">
+                <img src="https://ssl.gstatic.com/docs/templates/thumbnails/forms-blank-googlecolors.png" alt="">
+            </button>
+            <!-- <template-forms></template-forms> -->
+        </div>
     </div>
     <div class="recent-forms-container">
         <!-- ngIf have recent forms else you don't have.... -->
-        <!-- <recent-forms></recent-forms> -->
-        <h4>You don't have forms yet...
-            <a (click)="onAddForm()">Create your first form now</a>
-        </h4>
+        <recent-form-list *ngIf="userForms; else noForms" [forms]="userForms" (editForm)="editForm($event)"></recent-form-list>
+        <ng-template #noForms>
+            <h4>You don't have forms yet...
+                <a (click)="onAddForm()">Create your first form now</a>
+            </h4>
+        </ng-template>
     </div>
 </div>

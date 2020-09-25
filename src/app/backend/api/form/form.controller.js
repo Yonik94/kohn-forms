@@ -2,13 +2,25 @@ const formService = require('./form.service');
 const logger = require('../../services/logger.service');
 
 module.exports = {
-    addForm,
+    getForms,
     getForm,
+    addForm,
     addField,
     updateField,
     updateForm
 }
 
+async function getForms(req, res) {
+    try {
+        const ids = req.query.ids.split(',');
+        // console.log(ids);
+        const forms = await formService.getUserForms(ids)
+        res.send(forms);
+    }catch(err) {
+        logger.error(err);
+        throw err;
+    }
+}
 async function getForm(req, res) {
     try {
         const formId = req.params.id

@@ -45,7 +45,6 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   async deleteField(ev) {
-    console.log({ev});
     const form = await this.formService.deleteField(ev, this.form);
     this.form = form;
   }

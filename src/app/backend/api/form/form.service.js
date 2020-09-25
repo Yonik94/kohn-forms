@@ -9,15 +9,33 @@ module.exports = {
     getById,
     addField,
     updateField,
-    updateForm
+    updateForm,
+    getUserForms
+}
+
+async function getUserForms(ids) {
+    const collection = await dbService.getCollection('form');
+    try {
+        const forms = []
+        for(let i = 0; i < ids.length; i++) {
+            const form = await collection.findOne({ "_id": ObjectId(ids[i]) });
+            forms.push(form);
+        }
+        return forms
+    } catch (err) {
+        logger.error(err);
+        throw err
+    }
 }
 
 async function query(filterBy = {}) {
     const criteria = _buildCriteria(filterBy);
     const collection = await dbService.getCollection('form');
     try {
-        const forms = await collection.find(criteria).toArray();
-        return forms
+        const form = await collection.find(criteria)
+        // const forms = await collection.find(criteria).toArray();
+        // console.log({form});
+        return form
     } catch (err) {
         logger.error(err);
         throw err
@@ -27,6 +45,7 @@ async function getById(id) {
     const collection = await dbService.getCollection('form');
     try {
         const form = collection.findOne({ "_id": ObjectId(id) });
+        console.log({form});
         return form;
     } catch (err) {
         logger.error(err);
@@ -61,7 +80,6 @@ async function addField(formId) {
 }
 
 async function updateForm(form) {
-    console.log({form});
     const collection = await dbService.getCollection('form');
     const formId = form._id
     delete form._id
@@ -93,7 +111,8 @@ function _createForm() {
     return {
         title: '',
         description: '',
-        fields: []
+        fields: [],
+        createdAt: Date.now()
     }
 }
 

@@ -7,11 +7,14 @@ import { userService } from './services/user/user.service'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private route: Router) { }
+  constructor(private router: Router) { }
   title = 'survey-app';
   UserService = new userService
+  goHome() {
+    this.router.navigate([''])
+  }
   async ngOnInit() {
       const loggedInUser = await this.UserService.isLoggedIn();
-      if (!loggedInUser) this.route.navigate(['login']);
+      if (!loggedInUser) this.router.navigate(['login']);
   }
 }

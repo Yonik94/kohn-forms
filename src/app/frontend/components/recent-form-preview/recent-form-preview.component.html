@@ -1,0 +1,14 @@
+<li class="recent-form-preview" *ngFor="let form of forms" (click)="onFormClick(form._id)">
+    <div class="bgc-img-container">
+        <img src="" alt="">
+    </div>
+    <div class="recent-form-preview-footer">
+        <span class="recent-form-preview-title">{{(form.title) ? form.title : 'Untitled Form'}}</span>
+        <div>
+            <span>
+                {{form.createdAt | date}}
+            </span>
+            <button (click)="onActionBtn($event)">actions</button>
+        </div>
+    </div>
+</li>

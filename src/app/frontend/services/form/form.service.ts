@@ -9,6 +9,10 @@ export class formService {
   utilService = new utilService
 
   constructor() { }
+
+  async query(filterBy = {}) {
+    return await httpService.get(`form/?ids=${filterBy}`)
+  }
   async getForm(formId) {
     return await httpService.get(`form/${formId}`)
   }

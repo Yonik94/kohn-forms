@@ -13,7 +13,8 @@ async function getLoggedIn(req, res) {
     const cookie = req.cookies && req.cookies.token
     const token = cookie
     if(token) {
-        const user = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        const {userName} = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        const user = await authService.getLoggedInUser(userName)
         res.send(user);
     } else {
         res.send()

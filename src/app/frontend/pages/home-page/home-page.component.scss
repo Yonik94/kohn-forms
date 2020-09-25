@@ -1,0 +1,29 @@
+.home-page {
+    .templates-container {
+        width: 100%;
+        background-color: #f1f3f4;
+        padding: 24px;
+        .templates {
+            display: flex;
+            align-items: center;
+            button {
+                background-color: white;
+                border: none;
+                cursor: pointer;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &:hover {
+                    border: 1px solid black;
+                }
+
+                img {
+                    width: 150px;
+                    // height: 100%;
+                }
+            }
+        }
+    }
+}

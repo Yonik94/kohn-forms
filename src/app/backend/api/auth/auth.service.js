@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt');
 const userService = require('../user/user.service');
 const logger = require('../../services/logger.service');
-
 const saltRounds = 10;
 
 module.exports = {
     login,
-    signup
+    signup,
+    getLoggedInUser
 }
 
 async function login(userName, password) {
@@ -25,4 +25,10 @@ async function signup(userName, password) {
     if (!userName || !password) return Promise.reject('username and password are required!')
     const hash = await bcrypt.hash(password, saltRounds)
     return userService.add({userName, password: hash, forms: []})
+}
+
+async function getLoggedInUser(userName) {
+    const user = await userService.getByUserName(userName);
+    delete user.password;
+    return user
 }

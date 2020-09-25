@@ -1,4 +1,13 @@
 <div class="create-survey" *ngIf="form">
+    <div class="form-page-header">
+        <div>
+            <div>Logo</div>
+            <input type="text" [(ngModel)]="form.title" name="form-title"/>
+        </div>
+        <div>
+            
+        </div>
+    </div>
     <h2>Create online form</h2>
     <div class="form-header">
         <input name="form-title" [(ngModel)]="form.title" (blur)="updateForm()"/>

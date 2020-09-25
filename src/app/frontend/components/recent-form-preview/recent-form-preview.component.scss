@@ -1,0 +1,28 @@
+.recent-form-preview {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-inline-end: 10px;
+    height: 244px;
+    width: 208px;
+    border-radius: 4px;
+    transition: 1s;
+    &:hover {
+        border: 1px solid black;
+    }
+
+    .bgc-img-container {
+        flex-grow: 1;
+    }
+    .recent-form-preview-footer {
+        border-top: 1px solid #e2e2e2;
+        padding: 12px;
+        .recent-form-preview-title {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
+
+}

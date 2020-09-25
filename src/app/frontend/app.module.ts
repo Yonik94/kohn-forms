@@ -16,6 +16,8 @@ import { CheckboxFieldComponent } from './components/checkbox-field/checkbox-fie
 import { FieldHeaderComponent } from './components/field-header/field-header.component';
 import { FieldFooterComponent } from './components/field-footer/field-footer.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { RecentFormListComponent } from './components/recent-form-list/recent-form-list.component';
+import { RecentFormPreviewComponent } from './components/recent-form-preview/recent-form-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     FieldHeaderComponent,
     FieldFooterComponent,
     SignupComponent,
+    RecentFormListComponent,
+    RecentFormPreviewComponent
   ],
   imports: [
     BrowserModule,
